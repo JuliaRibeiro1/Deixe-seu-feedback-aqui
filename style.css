@@ -14,18 +14,11 @@ article {
   text-align: center;
    margin: 0 auto;
    font-size: 1.5em;
- /*  display: flex;
-   justify-content: center;
-   flex-direction: column;
-   align-items: center;*/
-  
- 
+
     
 }
 textarea {
-   
     width: 100%;
-    
     min-width:200px;
     resize: none;
     height: 100%;
@@ -37,7 +30,7 @@ input,textarea,.publish-btn {
     background-color: #444059;
     border: 0;
     padding: 1.5em;
-    margin-top: 1.5em;
+    margin-top: 2em;
     border-radius: .5em;
     display: block;
     color:rgb(248, 248, 248);
@@ -87,7 +80,7 @@ li {
     margin-top: 1.5em;
 }
 .endorsements li {
-    padding: 1em;
+    padding: 2em 1.5em;
     text-align: start;
     margin-top: 1em;
     font-size: 1rem;
@@ -96,4 +89,9 @@ li {
 }
 .endorsements p {
     margin-bottom: 1em;
+    font-size: 1.5em;
+}
+.endorsements h3 {
+    font-size: 1em;
+
 }
