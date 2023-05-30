@@ -5,14 +5,13 @@ import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com
 const appSettings = {
     databaseURL: "https://feedback-app-d5436-default-rtdb.firebaseio.com/"
 }
-console.log("OI")
+
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const commentsInDB = ref(database,"comments")
 const textareaInput = document.querySelector("textarea")
 const nameInput = document.querySelector("input")
 const commentsListEl = document.querySelector(".endorsements ul")
-console.log(textareaInput)
 
 document.querySelector(".publish-btn").addEventListener("click",() => {
 
@@ -30,13 +29,13 @@ document.querySelector(".publish-btn").addEventListener("click",() => {
 onValue(commentsInDB,(snapshot) => {
     commentsListEl.innerHTML = ""
     let commentsArray = Object.entries(snapshot.val())
-    commentsArray.map(item => {
-        appendNewComment(item)
-    })
-   
-    
+    for(let i = commentsArray.length - 1; i >= 0; i--) {
+       appendNewComment(commentsArray[i])
+    }
 })
-
+/* commentsArray.map(item => {
+            appendNewComment(item)
+        })*/
 function appendNewComment(obj) {
     const {comment,name} = obj[1]
     let newEl = document.createElement("li")

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #1B1924;
+    background-color: #262333;
     padding: 1em;
     color:rgb(248, 248, 248);
 }
@@ -74,12 +74,14 @@ input:focus, textarea:focus {
 }
 li {
     list-style: none;
+    display: block;
     
 }
 .endorsements {
     margin-top: 1.5em;
 }
 .endorsements li {
+    position: relative;
     padding: 2em 1.5em;
     text-align: start;
     margin-top: 1em;
@@ -94,4 +96,17 @@ li {
 .endorsements h3 {
     font-size: 1em;
 
+}
+.arrows-container {
+    width: 100%;
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+span img {
+    width: 20px;
+}
+#arrow-left {
+    transform: rotate(180deg);
 }
