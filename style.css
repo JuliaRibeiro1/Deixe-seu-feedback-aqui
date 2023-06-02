@@ -79,14 +79,17 @@ li {
 }
 .endorsements {
     margin-top: 1.5em;
+    position: relative;
 }
 .endorsements li {
     position: relative;
-    padding: 2em 1.5em;
+    padding: 1.5em;
+    margin: 0 auto;
     text-align: start;
     margin-top: 1em;
+    width: 95%;
     font-size: 1rem;
-    background-color: rgb(248, 248, 248);
+    background-color: rgba(248, 248, 248, 0.541);
     color:rgba(0, 0, 0, 0.822);
 }
 .endorsements p {
@@ -100,12 +103,14 @@ li {
 .arrows-container {
     width: 100%;
     display: flex;
-    
+    position: absolute;
+    top:45%;
+    transform: translateY(0%);
     justify-content: space-between;
 }
 
 span img {
-    width: 20px;
+    width: 25px;
 }
 #arrow-left {
     transform: rotate(180deg);

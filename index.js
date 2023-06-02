@@ -12,7 +12,7 @@ const commentsInDB = ref(database,"comments")
 const textareaInput = document.querySelector("textarea")
 const nameInput = document.querySelector("input")
 const commentsListEl = document.querySelector(".endorsements ul")
-
+let commentsArrEl = []
 document.querySelector(".publish-btn").addEventListener("click",() => {
 
     if(textareaInput.value !== "" && nameInput.value !== "" ) {
@@ -25,13 +25,17 @@ document.querySelector(".publish-btn").addEventListener("click",() => {
 }
 
 })
-
+let atualComment = 0
+let commentsArray = []
 onValue(commentsInDB,(snapshot) => {
     commentsListEl.innerHTML = ""
-    let commentsArray = Object.entries(snapshot.val())
-    for(let i = commentsArray.length - 1; i >= 0; i--) {
-       appendNewComment(commentsArray[i])
-    }
+   
+    commentsArray = Object.entries(snapshot.val())
+    commentsArray = commentsArray.reverse()
+
+            appendNewComment(commentsArray[0])
+            console.log(commentsArray)
+
 })
 /* commentsArray.map(item => {
             appendNewComment(item)
@@ -40,6 +44,33 @@ function appendNewComment(obj) {
     const {comment,name} = obj[1]
     let newEl = document.createElement("li")
     newEl.innerHTML = `<p>${comment}</p> <h3>${name}</h3>`
-    commentsListEl.append(newEl)
+   // commentsListEl.append(newEl)
+   
+    commentsArrEl.unshift({newEl})
+    commentsListEl.innerHTML = `<li><p>${comment}</p> <h3>${name}</h3></li>`
+    console.log(atualComment)
+    setTimeout(() => {
+        nextComment()
+    },5000)
     
 }
+document.querySelector("#arrow-rigth").addEventListener("click",() => {
+    nextComment()
+})
+document.querySelector("#arrow-left").addEventListener("click",() => {
+    previousComment()
+})
+
+function nextComment() {
+    if(atualComment <= commentsArray.length) {
+    appendNewComment(commentsArray[atualComment + 1])
+    atualComment++
+    }
+}
+function previousComment() {
+    if(atualComment > 0) {
+    appendNewComment(commentsArray[atualComment - 1])
+    atualComment--
+    }
+}
+
