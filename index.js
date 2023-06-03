@@ -48,11 +48,22 @@ function appendNewComment(obj) {
    
     commentsArrEl.unshift({newEl})
     commentsListEl.innerHTML = `<li><p>${comment}</p> <h3>${name}</h3></li>`
-    console.log(atualComment)
+   
+    if(atualComment < commentsArray.length ) {
     setTimeout(() => {
+        if (atualComment == commentsArray.length - 1) {
+            atualComment = -1
+            console.log("Opa")
+        }
+     
         nextComment()
-    },5000)
-    
+        
+        
+    },7000)
+}
+   
+    console.log(atualComment)
+    console.log(comment)
 }
 document.querySelector("#arrow-rigth").addEventListener("click",() => {
     nextComment()
@@ -62,15 +73,17 @@ document.querySelector("#arrow-left").addEventListener("click",() => {
 })
 
 function nextComment() {
-    if(atualComment <= commentsArray.length) {
-    appendNewComment(commentsArray[atualComment + 1])
-    atualComment++
+    if(atualComment < commentsArray.length - 1) {
+        atualComment++
+        appendNewComment(commentsArray[atualComment])
+  
     }
 }
 function previousComment() {
     if(atualComment > 0) {
-    appendNewComment(commentsArray[atualComment - 1])
-    atualComment--
+        atualComment--
+        appendNewComment(commentsArray[atualComment])
+   
     }
 }
 
