@@ -18,6 +18,27 @@ main,header {
     height:100px;
     border-radius: 50%;
     background-color: #444059;
+    background-position: center;
+    object-fit: cover;
+    border: 2px solid #FF0066;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.459);
+}
+.socials-container {
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+    gap:.5em;
+}
+.socials-container img  {
+   width: 45px; 
+   
+}
+#linkedin-icon {
+    width: 40px;;
+}
+main {
+  
+
 }
 article,header {
     width: 80vw;
@@ -28,15 +49,18 @@ article,header {
     
 }
 header {
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  
 }
 textarea {
     width: 100%;
     min-width:200px;
     resize: none;
     height: 100%;
-    min-height: 220px;
+    min-height: 150px;
    
 }
 input,textarea,.publish-btn {
@@ -60,9 +84,7 @@ input:focus, textarea:focus {
     width: 100%;
    margin: 0 auto;
 }
-.input-seciton input {
-    
-}
+
 .publish-btn {
     width: 100%; 
     border-radius: 1.5em;
@@ -103,7 +125,7 @@ li {
     margin-top: 1em;
     width: 95%;
     font-size: 1rem;
-    background-color: rgba(248, 248, 248, 0.541);
+    background-color: rgba(248, 248, 248, 0.966);
     color:rgba(0, 0, 0, 0.822);
 }
 .endorsements p {
@@ -115,12 +137,15 @@ li {
 
 }
 .arrows-container {
-    width: 100%;
+    width: 90vw;
     display: flex;
     position: absolute;
-    top:45%;
-    transform: translateY(0%);
+    left:50%;
+    transform: translate(-50%,-50%);
+    max-width: 550px;
+    top:50%;
     justify-content: space-between;
+    
 }
 
 span img {
