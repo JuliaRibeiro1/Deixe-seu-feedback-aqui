@@ -29,61 +29,72 @@ let atualComment = 0
 let commentsArray = []
 onValue(commentsInDB,(snapshot) => {
     commentsListEl.innerHTML = ""
-   
     commentsArray = Object.entries(snapshot.val())
     commentsArray = commentsArray.reverse()
-
-            appendNewComment(commentsArray[0])
-            console.log(commentsArray)
+    appendNewComment(commentsArray[0])
+           
 
 })
-/* commentsArray.map(item => {
-            appendNewComment(item)
-        })*/
+
 function appendNewComment(obj) {
     const {comment,name} = obj[1]
     let newEl = document.createElement("li")
     newEl.innerHTML = `<p>${comment}</p> <h3>${name}</h3>`
-   // commentsListEl.append(newEl)
-   
     commentsArrEl.unshift({newEl})
     commentsListEl.innerHTML = `<li><p>${comment}</p> <h3>${name}</h3></li>`
-   
-    if(atualComment < commentsArray.length ) {
-    setTimeout(() => {
-        if (atualComment == commentsArray.length - 1) {
-            atualComment = -1
-            console.log("Opa")
-        }
-     
-        nextComment()
-        
-        
-    },7000)
-}
-   
+  
+    
+ 
+   // nextComment()
+  
     console.log(atualComment)
-    console.log(comment)
 }
+
+let interval;
+
 document.querySelector("#arrow-rigth").addEventListener("click",() => {
     nextComment()
+    clearInterval(myInterval)
+
+ //   clearTimeout(timeOut)
+    
 })
 document.querySelector("#arrow-left").addEventListener("click",() => {
     previousComment()
+    clearInterval(myInterval)
 })
 
+function next() {
+     nextComment()
+
+}
+//next()
+const myInterval = setInterval(next, 7000);
 function nextComment() {
-    if(atualComment < commentsArray.length - 1) {
-        atualComment++
-        appendNewComment(commentsArray[atualComment])
-  
+    if(atualComment < commentsArray.length ) {
+       
+       
+    if (atualComment == commentsArray.length - 1) {
+        atualComment = -1
     }
 }
-function previousComment() {
-    if(atualComment > 0) {
-        atualComment--
-        appendNewComment(commentsArray[atualComment])
-   
-    }
+    atualComment++
+    appendNewComment(commentsArray[atualComment])
+
 }
 
+function previousComment() {
+    if(atualComment >= 0 ) {
+       
+
+  if(atualComment == 0) {
+        atualComment = commentsArray.length 
+        console.log(atualComment)
+      
+    }
+    atualComment--
+    appendNewComment(commentsArray[atualComment])
+}
+   console.log(atualComment)
+    
+}
