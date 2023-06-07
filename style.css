@@ -7,7 +7,7 @@ body {
     background-color: #262333;
     padding: 1em;
     color:rgb(248, 248, 248);
-    
+    font-family: 'Inconsolata', monospace;
     
 }
 main,header {
@@ -42,7 +42,8 @@ main {
 }
 article,header {
     width: 80vw;
-    max-width: 520px;
+    max-width: 450px;
+    min-width: 200px;
     text-align: center;
     margin: 0 auto;
     font-size: 1.5em;
@@ -71,11 +72,14 @@ input,textarea,.publish-btn {
     margin-top: 2em;
     border-radius: .5em;
     display: block;
+    font-size: 15px;
     color:rgb(248, 248, 248);
+    font-family: 'Inconsolata', monospace;
 
 }
 button {
-    
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700;
 }
 input:focus, textarea:focus {
     outline: 0;
@@ -96,6 +100,9 @@ input:focus, textarea:focus {
     position: relative;
     margin-top: 2em;
 
+}
+.endorsements-section h2 {
+    font-weight: 300;
 }
 .endorsements-section h2:after {
     content:"";
@@ -134,6 +141,7 @@ li {
 }
 .endorsements h3 {
     font-size: 1em;
+    font-weight: 400;
 
 }
 .arrows-container {
